@@ -1,0 +1,117 @@
+{
+  "name": "sigmawp/munirock",
+  "type": "project",
+  "license": "GPL v3.0",
+  "description": "WordPress boilerplate mixing the Municipio boilerplate from Helsingborg and Bedrock from roots.io in a Docker composition based on 10up's WordPress dev environment.",
+  "homepage": "https://github.com/sigmaitc/munirock/",
+  "authors": [
+    {
+      "name": "Rasmus Sjostrom",
+      "email": "rasmus.sjostrom@sigma.se",
+    }
+  ],
+  "keywords": [
+      "bedrock", "roots", "wordpress", "composer", "docker", "10up", "municipio", "helsingborg"
+  ],
+  "support": {
+    "issues": "https://github.com/roots/bedrock/issues",
+    "forum": "https://discourse.roots.io/category/bedrock"
+  },
+  "config": {
+    "preferred-install": "dist"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/helsingborg-stad/Modularity.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/helsingborg-stad/Municipio.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/helsingborg-stad/xcap-import.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/helsingborg-stad/lix-calculator.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/helsingborg-stad/open-hours.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/helsingborg-stad/custom-short-links.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/helsingborg-stad/readspeaker-helper.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/helsingborg-stad/content-scheduler.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/helsingborg-stad/broken-link-detector.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/helsingborg-stad/better-post-UI.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/helsingborg-stad/ACF-UX-collapse.git"
+    },
+    {
+      "type":"composer",
+      "url":"https://wpackagist.org"
+    }
+  ],
+
+  "require": {
+    "php": ">=7.0",
+    "composer/installers": "~1.4",
+    "vlucas/phpdotenv": "^2.0.1",
+    "johnpbloch/wordpress": "^4.8.3",
+    "oscarotero/env": "^1.1.0",
+    "roots/wp-password-bcrypt": "1.0.0"
+    "wpackagist-plugin/wp-editor-widget": "^0.5.5",
+    "wpackagist-plugin/wp-nested-pages": "^1.5.4"
+    "helsingborg-stad/modularity": ">=1.0.0",
+    "helsingborg-stad/municipio": ">=1.0.0",
+    "helsingborg-stad/lix-calculator": ">=1.0.1",
+    "helsingborg-stad/custom-short-links": ">=1.0.0",
+    "helsingborg-stad/readspeaker-helper": ">=1.0.0",
+    "helsingborg-stad/content-scheduler": ">=1.0.0",
+    "helsingborg-stad/broken-link-detector": ">=1.0.0",
+    "helsingborg-stad/better-post-ui": ">=1.0.0",
+    "helsingborg-stad/acf-ux-collapse": ">=1.0.0",
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.0.2"
+  },
+
+  "extra": {
+    "installer-paths": {
+      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
+      "web/app/themes/{$name}/": ["type:wordpress-theme"]
+    },
+    "wordpress-install-dir": "web/wp"
+  },
+
+  "scripts": {
+    "post-root-package-install": [
+      "php -r \"copy('.env.example', '.env');\""
+    ],
+    "test": [
+      "vendor/bin/phpcs"
+    ],
+    "post-install-cmd": [
+        "mkdir -p web/app/uploads/cache/blade-cache"
+    ]
+  }
+}
