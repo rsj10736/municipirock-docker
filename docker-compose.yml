@@ -67,5 +67,5 @@ services:
     image: node:6
     working_dir: /var/www/html/municipio
     volumes:
-      - "./wordpress/wp-content/themes/municipio:/var/www/html/municipio"
+      - "./wordpress/web/app/themes/municipio:/var/www/html/municipio"
     restart: "no"
