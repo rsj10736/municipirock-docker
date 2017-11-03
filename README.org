@@ -11,9 +11,9 @@ Credits section and feel free to contribute.
 ** Environment
 *** Initial Setup
     1. Clone the Repository
-    #+BEGIN_SRC sh
-    git clone git@github.com:rsj10736/municipirock-docker.git
-    #+END_SRC
+       #+BEGIN_SRC sh
+       git clone git@github.com:rsj10736/municipirock-docker.git
+       #+END_SRC
 
     2. Start Environment
        #+BEGIN_SRC sh
