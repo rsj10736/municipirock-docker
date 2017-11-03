@@ -11,11 +11,10 @@
     }
   ],
   "keywords": [
-      "bedrock", "roots", "wordpress", "composer", "docker", "10up", "municipio", "helsingborg"
+      "bedrock", "roots", "wordpress", "composer", "docker", "10up", "municipio", "helsingborg", "sigma"
   ],
   "support": {
-    "issues": "https://github.com/roots/bedrock/issues",
-    "forum": "https://discourse.roots.io/category/bedrock"
+    "issues": "https://github.com/rsj10736/municipirock-docker/issues"
   },
   "config": {
     "preferred-install": "dist"

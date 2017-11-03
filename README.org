@@ -1,0 +1,44 @@
+* municipirock-docker
+Helsingborg's Municipio theme, placed in the Bedrock structure from Roots,
+split up in the micro service docker compose environment from the 10Up Team.
+
+The primary purpose of this is to get a clean, reproducible development
+environment without cluttering your system with dependencies.
+
+Read more about the individual projects that forms this mashup under the
+Credits section and feel free to contribute.
+
+** Environment
+*** Initial Setup
+    1. Clone the Repository
+    #+BEGIN_SRC sh
+    git clone git@github.com:rsj10736/municipirock-docker.git
+    #+END_SRC
+
+    2. Start Environment
+       #+BEGIN_SRC sh
+       cd municipirock-docker/
+       docker-compose up -d # add --force-recreate to rebuild containers
+       #+END_SRC
+
+    3. Install Dependencies (takes a while)
+       - /Create and Enter GitHub OAuth token when prompted/
+       #+BEGIN_SRC sh
+       docker-compose exec --user root phpfpm bash
+       > cd bedrock
+       > composer install
+       #+END_SRC
+
+       #+BEGIN_SRC sh
+       docker-compose run --user root node npm install
+       chown -R http:http /wordpress/app/themes/
+       #+END_SRC
+
+    4. Complete the WP installation at http://localhost/
+
+    5. Activate the Municipio theme and plugins through the Dashboard
+
+** Credits:
+- [[https://github.com/helsingborg-stad/Municipio][Helsingborg Stad]] - Municipio
+- [[https://github.com/10up/wp-local-docker][10up]] - wp-local-docker
+- [[https://github.com/roots/bedrock][Roots]] - Bedrock
